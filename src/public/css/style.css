@@ -56,3 +56,17 @@ body {
     background-color: #04AA6D;
     color: white;
 }
+
+.create-users {
+    padding: 15px;
+    text-align: center;
+}
+
+.create-users label {
+    display: block;
+    margin-left: 0px;
+}
+
+.btn-submit {
+    margin-top: 15px;
+}

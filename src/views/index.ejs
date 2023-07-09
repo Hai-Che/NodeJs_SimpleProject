@@ -30,19 +30,44 @@
                         <%= data[i].id %>
                     </td>
                     <td>
-                        <%= data[i].lastName %>
-                    </td>
-                    <td>
                         <%= data[i].firstName %>
                     </td>
                     <td>
-                        <button type="button"><a href="/detail/<%= data[i].id %>">Detail</a></button>
-                        <button type="button"><a href="/edit">Edit</a></button>
-                        <button type="button"><a href="/delete">Delete</a></button>
+                        <%= data[i].lastName %>
+                    </td>
+                    <td>
+                        <button type="button"><a href="/detail/user/<%= data[i].id %>">Detail</a></button>
+                        <form action="/update/user/<%= data[i].id %>" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form action="/delete-user" method="POST">
+                            <input type="text" hidden value="<%= data[i].id %>" name="id">
+                            <button type="submit">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <% } %>
         </table>
+        <form action="/create-new-user" class="create-users" method="post">
+            <h4>Create new user</h4>
+            <div>
+                <label for="firstName">Enter your first name:</label>
+                <input type="text" name="firstName" id="firstName">
+            </div>
+            <div>
+                <label for="lastName">Enter your last name:</label>
+                <input type="text" name="lastName" id="lastName">
+            </div>
+            <div>
+                <label for="address">Enter your address:</label>
+                <input type="text" name="address" id="address">
+            </div>
+            <div>
+                <label for="email">Enter your email:</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <button type="submit" class="btn-submit">Submit</button>
+        </form>
     </div>
 </body>
 
