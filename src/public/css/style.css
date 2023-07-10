@@ -70,3 +70,11 @@ body {
 .btn-submit {
     margin-top: 15px;
 }
+
+.uploadFile label {
+    display: block;
+}
+
+.uploadFile div {
+    padding: 15px;
+}

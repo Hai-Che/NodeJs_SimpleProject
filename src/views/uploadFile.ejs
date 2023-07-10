@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <title>NodeJS Basic</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/uploadFile">Upload</a>
+    </div>
+    <form action="/upload-profile-pic" class="uploadFile" enctype="multipart/form-data" method="POST">
+        <div>
+            <label for="">Avatar:</label>
+            <input type="file" name="single">
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+
+    <form action="/upload-profile-pics" class="uploadFile" enctype="multipart/form-data" method="POST">
+        <div>
+            <label for="">Avatars:</label>
+            <input type="file" name="multi" multiple>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</body>
+
+</html>
