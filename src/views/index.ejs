@@ -33,7 +33,7 @@
                     <td>
                         <%= data[i].lastName %>
                     </td>
-                    <td>
+                    <td class="custom">
                         <button type="button"><a href="/detail/user/<%= data[i].id %>">Detail</a></button>
                         <form action="/update/user/<%= data[i].id %>" method="GET">
                             <button type="submit">Edit</button>

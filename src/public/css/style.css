@@ -73,8 +73,23 @@ body {
 
 .uploadFile label {
     display: block;
+    font-size: x-large;
+    margin-bottom: 15px;
+
 }
 
 .uploadFile div {
     padding: 15px;
+}
+
+hr {
+    border: solid gray 1px;
+}
+
+.tit {
+    padding: 15px;
+}
+
+.custom {
+    display: flex;
 }

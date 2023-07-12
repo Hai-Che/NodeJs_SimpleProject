@@ -44,34 +44,40 @@ let getUploadFile = async (req, res) => {
     return res.render('uploadFile.ejs')
 }
 
-const upload = multer().single('single');
-
 let handleUploadFile = async (req, res) => {
-    // 'profile_pic' is the name of our file input field in the HTML form
-    upload(req, res, function (err) {
-        // req.file contains information of uploaded file
-        // req.body contains information of text fields, if there were any
 
-        if (req.fileValidationError) {
-            return res.send(req.fileValidationError);
-        }
-        else if (!req.file) {
-            return res.send('Please select an image to upload');
-        }
-        else if (err instanceof multer.MulterError) {
-            return res.send(err);
-        }
-        else if (err) {
-            return res.send(err);
-        }
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.file) {
+        return res.send('Please select an image to upload');
+    }
 
-        // Display uploaded image for user validation
-        res.send(`You have uploaded this image: <hr/><img src="/img/${req.file.filename}" width="500"><hr /><a href="/uploadFile">Upload another image</a>`);
-    });
+    // Display uploaded image for user validation
+    res.send(`You have uploaded this image: <hr/><img src="/img/${req.file.filename}" width="500"><hr /><a href="/uploadFile">Upload another image</a>`);
 }
 
 let handleUploadFiles = async (req, res) => {
-    return res.render('uploadFile.ejs')
+
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.files) {
+        return res.send('Please select an image to upload');
+    }
+
+    let result = "You have uploaded this image: <hr />"
+    const files = req.files;
+    let index, len;
+
+    for (index = 0, len = files.length; index < len; ++index) {
+        result += `<img src="/img/${files[index].filename}" width="300"></img>`
+    }
+    result += `<hr /><a href="/uploadFile">Upload another image</a>`
+    res.send(result)
+    // Display uploaded image for user validation
+    // res.send(`You have uploaded this image: <hr/><img src="/img/${req.file.filename}" width="500"><hr /><a href="/uploadFile">Upload another image</a>`);
+    // });
 }
 
 
